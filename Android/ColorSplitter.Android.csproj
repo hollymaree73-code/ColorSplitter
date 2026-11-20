@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-android</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ColorSplitter.Android</RootNamespace>
+    <ApplicationId>com.hollymaree73.colorsplitter</ApplicationId>
+    <ApplicationTitle>Color Splitter</ApplicationTitle>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>0.1.0</ApplicationDisplayVersion>
+    <SupportedOSPlatformVersion>23.0</SupportedOSPlatformVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Base" Version="11.1.3" />
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Android" Version="2.88.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="../ImageSplitting.cs" Link="Core/ImageSplitting.cs" />
+    <Compile Include="../Algorithms/**/*.cs" Link="Core/Algorithms/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

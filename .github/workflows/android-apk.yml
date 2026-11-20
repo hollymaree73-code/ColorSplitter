@@ -1,0 +1,47 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - android-native
+    paths:
+      - "Android/**"
+      - "Algorithms/**"
+      - "ImageSplitting.cs"
+      - ".github/workflows/android-apk.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Install Android workload
+        run: dotnet workload install android
+
+      - name: Restore dependencies
+        run: dotnet restore Android/ColorSplitter.Android.csproj
+
+      - name: Build Android APK
+        run: >
+          dotnet publish Android/ColorSplitter.Android.csproj
+          -c Release
+          -f net10.0-android
+          -p:AndroidPackageFormat=apk
+          -o artifacts
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ColorSplitter-Android
+          path: artifacts/*.apk
+          if-no-files-found: error
+          retention-days: 14
