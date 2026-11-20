@@ -70,10 +70,8 @@ public sealed class MainActivity : Activity
 
         page.AddView(importButton, buttonParams);
 
-        _preview = new ImageView(this)
-        {
-            AdjustViewBounds = true
-        };
+        _preview = new ImageView(this);
+        _preview.SetAdjustViewBounds(true);
 
         _preview.SetScaleType(ImageView.ScaleType.FitCenter);
         _preview.SetBackgroundColor(Color.Rgb(35, 39, 48));
