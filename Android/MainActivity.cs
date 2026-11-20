@@ -12,9 +12,9 @@ namespace ColorSplitter.Android;
     MainLauncher = true,
     Exported = true,
     Theme = "@android:style/Theme.Material.Light.NoActionBar",
-    ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation |
-                           Android.Content.PM.ConfigChanges.ScreenSize |
-                           Android.Content.PM.ConfigChanges.UiMode)]
+    ConfigurationChanges = global::Android.Content.PM.ConfigChanges.Orientation |
+                           global::Android.Content.PM.ConfigChanges.ScreenSize |
+                           global::Android.Content.PM.ConfigChanges.UiMode)]
 public sealed class MainActivity : Activity
 {
     private const int PickImageRequest = 4101;
