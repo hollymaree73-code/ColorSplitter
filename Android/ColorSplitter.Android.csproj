@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Base" Version="11.1.3" />
+    <PackageReference Include="Avalonia" Version="11.1.3" />
     <PackageReference Include="SkiaSharp" Version="2.88.8" />
     <PackageReference Include="SkiaSharp.NativeAssets.Android" Version="2.88.8" />
   </ItemGroup>
